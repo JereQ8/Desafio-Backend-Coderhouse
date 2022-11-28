@@ -1,3 +1,8 @@
+
+// De todos los motores de plantillas que he usado el que mas me gusto fue Handlebars, porque es muy parecido a HTML y se pueden concatenar muy facilmente los valores del objeto pasado por parametro.
+
+
+
 const express= require("express")
 const {engine}= require("express-handlebars")
 const app= express()
