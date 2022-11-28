@@ -1,0 +1,13 @@
+<h1>Productos</h1>
+<div class="contenedor-productos">
+    {{#each productos}}
+        <div> 
+            <h4>{{this.name}}</h4>
+            <b>{{this.price}}</b>
+            <div class="cont-img-prod">
+                <img src={{this.thumbnail}} alt="">
+            </div>
+        </div>
+    {{/each}}
+    <button> <a href="http://localhost:3000">Crear nuevo producto</a> </button>
+</div>

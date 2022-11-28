@@ -1,0 +1,13 @@
+<h1>Crear producto</h1>
+<div>
+    <form class="formulario" action="/productos" method="POST">
+        <label for="name">Nombre del producto</label>
+        <input type="text" name="name" required> <br>
+        <label for="price"> Precio del Producto </label> 
+        <input type="number" name="price" required> <br>
+        <label for="thumbnail">Imagen del producto (URL)</label>
+        <input type="url" name="thumbnail" required> <br>
+        <button type="submit"> Crear producto </button>
+        <button> <a href="http://localhost:3000/productos">Ver lista de productos</a> </button>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+head 
+    title Productos
+    
+body 
+    h1 Productos
+    div.contenedorProductos 
+        each val,key in productos
+            div 
+                h4=val.name 
+                b Precio: #{val.price} 
+                img(src=val.thumbnail style={width:"25%"})
+    button
+        a(href="/") Crear productos

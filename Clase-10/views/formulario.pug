@@ -1,0 +1,15 @@
+head 
+    title Form con Pug
+    
+body 
+    h1 Formulario con Pug
+    form(action="/productos", method="post" class="formulario")
+        input(type="text" name="name")
+        br
+        input(type="number" name="price")
+        br
+        input(type="url" name="thumbnail")
+        br
+        button(type="submit") Crear producto
+    button
+        a(href="/productos") Ver productos
