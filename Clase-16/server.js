@@ -37,6 +37,9 @@ app.engine("handlebars", handlebars.engine())
 app.set("views", "./views")
 app.set("view engine", "handlebars")
 
+// Esta funcion la hice para ver si aca me tomaba la base de datos y 
+// si podia hacer las querys, pero es de forma provisoria
+
 const returnProducts=async (req, res)=>{
      await db.config.select("*").from('products')
         .then((respuesta)=> res.json(respuesta))
