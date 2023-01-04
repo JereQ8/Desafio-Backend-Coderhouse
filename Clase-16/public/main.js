@@ -26,8 +26,8 @@ socket.on("chat:message", (data)=>{
     console.log(fecha.getHours() + ":" + fecha.getMinutes())
     chat.innerHTML+= `
     <div class="cont-msj">
-    <strong> ${data.gmail} </strong> <p class="dataMensaje">(${fecha.getHours()+ ":" + fecha.getMinutes() + ":" + fecha.getSeconds()}): </p> 
-    <p class="message"> ${data.message} </p>
+    <strong> ${data[data.length-1].gmail} </strong> <p class="dataMensaje">(${data[data.length-1].date}): </p> 
+    <p class="message"> ${data[data.length-1].message} </p>
     </div> 
     `
 })
