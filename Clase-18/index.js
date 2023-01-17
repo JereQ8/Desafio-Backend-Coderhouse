@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 
+<<<<<<< HEAD
 const client= await new MongoClient(
     'mongodb://localhost:27017',
     // { useNewUrlParser: true, useUnifiedTopology: true }
@@ -134,3 +135,5 @@ db.auth({'pepe', 'simon'})
 
 
 // console.log(showProductos)
+=======
+>>>>>>> 1f692a25f5f69d80dae6cc2aafa36f7ee2004d1e

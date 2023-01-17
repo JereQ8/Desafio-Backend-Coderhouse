@@ -1,9 +1,19 @@
 {
+<<<<<<< HEAD
   "type": "module",
   "name": "clase-18",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+=======
+  "dependencies": {
+    "mongodb": "^4.13.0"
+  },
+  "name": "clase-18",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+>>>>>>> 1f692a25f5f69d80dae6cc2aafa36f7ee2004d1e
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
@@ -11,7 +21,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+<<<<<<< HEAD
   "dependencies": {
     "mongodb": "^4.13.0"
   }
+=======
+  "description": ""
+>>>>>>> 1f692a25f5f69d80dae6cc2aafa36f7ee2004d1e
 }
