@@ -1,20 +1,21 @@
-import ContenedorCarritosDB from "./Mongo/ContenedorCarritos.js";
-import ContenedorProductosDB from "./Mongo/ContenedorProductos.js";
-import ContenedorCarritosFS from './FileSystem/ContenedorCarrito.js'
-import ContenedorProductosFS from './FileSystem/ContenedorProductos.js'
+import routeCarritoDB from '../routes/mongo-routes/routeCarrito.js'
+import routeProductosDB from '../routes/mongo-routes/routeProductos.js'
+import routeCarritoFS from '../routes/fileSystem-routes/routeCarrito.js'
+import routeProductosFS from '../routes/fileSystem-routes/routeProducts.js'
 
-const persistencia= 'FileSystem'
-let contenedor
+
+
+const persistencia= 'Mongo'
+let routes
 
 if(persistencia=='FileSystem'){
-    contenedor= new ContenedorCarrito('./DbsFileSystem/carritos.json')
-} 
+    routes=[routeCarritoFS,routeProductosFS]
+}
+else if(persistencia=='Mongo'){
+    routes= [routeCarritoDB, routeProductosDB]
+}
+
+export default routes
 
 
-
-// USAR FS O MONGO SEGUN LA PERSISTENCIA
-
-// 1) en index.js debo importar 2 routes con los nombres 'routeCarrito' y 'routeProducts' y ponerlos en server.use()... Ambas importaciones vienen de indexDB.js
-
-// 2) en indexDB.js debo exportar 2 routes, ambas deben ser de una misma persistencia (db o fs)
 
