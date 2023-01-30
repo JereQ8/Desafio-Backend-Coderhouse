@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Microondas",
+        "id": 1
+    },
+    {
+        "name": "Heladera",
+        "id": 2
+    },
+    {
+        "name": "Mouse", 
+        "id": 3
+    }
+]
