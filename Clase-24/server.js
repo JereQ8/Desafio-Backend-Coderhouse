@@ -69,8 +69,17 @@ app.set("view engine", "handlebars")
 app.get("/FormularioYProductos",async (req, res)=>{
     const productos= await dbProducts.getAll()
     const mensajes= await dbMessages.getAll()
-    const user= await userModel.findOne({email: req.session.user.gmail})
-    res.render("productos", {productos, mensajes, fecha, user})
+    if(!req.session.user) res.render("productos", {productos, mensajes, fecha})
+    else res.render("productos", {productos, mensajes, fecha, user: req.session.user})
+})
+
+app.delete('/FormularioYProductos', async (req, res)=>{
+    req.session.destroy((err)=>{
+        res.redirect('/login')
+    })
+
+    
+
 })
 
 app.get("/table", async (req, res)=>{
