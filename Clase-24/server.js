@@ -1,17 +1,3 @@
-
-// OBJETIVOS DESAFIO CLASE 24:
-// 1) Que un usuario entre a register y se pueda registrar quedando su cuenta en mongo atlas
-// 2) Que un usuario registrado pueda loguearse en /login
-// 3) Que el usuario logueado se le cierre la sesion despues de un determinado tiempo, por ejemplo: 20s
-
-// 1A- A la hora de registrarse no debe poder registrar un gmail que ya haya sido utilizado antes
-// 1B- No puede registrarse si hay campos vacios
-
-// 2A- A la hora de loguearse debe dispararse una cookie que deje su sesion iniciada por un tiempo establecido
-// 2A- 
-
-
-
 const express= require("express")
 const path= require("path")
 const SocketIO= require("socket.io")
@@ -28,9 +14,11 @@ const cookieParser= require('cookie-parser')
 const session= require('express-session')
 const MongoStore= require('connect-mongo')
 const userModel= require('./models/User.js')
+const passport= require('passport')
+const initializeStrategies= require('./config/passport.js')
 
 
-
+mongoose.set('strictQuery', true)
 const conexion= mongoose.connect("mongodb+srv://JereUser:sesquin2863@jere-back.paqom6v.mongodb.net/productos?retryWrites=true&w=majority", (err)=>{
     if(err) console.log(err)
     else console.log('Base de datos conectada correctamente')
@@ -46,6 +34,7 @@ const app= express()
 const fecha= new Date()
 
 // middlewares
+
 app.use(cookieParser())
 app.use(session({
     store:MongoStore.create({mongoUrl:'mongodb+srv://JereUser:sesquin2863@jere-back.paqom6v.mongodb.net/productos?retryWrites=true&w=majority', ttl: 20}),
@@ -53,6 +42,11 @@ app.use(session({
     resave:false,
     saveUninitialized: false
 }))
+
+
+initializeStrategies();
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
